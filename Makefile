@@ -20,11 +20,15 @@ OUTPUT_FOLDER = ./output/
 # all sourcers, obs, and header files
 MAIN = main
 TARGET = main
+LOGPATH = logs
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
+LOGFILE = $(LOGPATH)/$(shell date --iso=seconds)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
+
 
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
+
 
 all: comp run
 
@@ -37,3 +41,8 @@ run:
 clean: 
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLFER)* $(TARGET)
 	clear
+
+git:
+	git add .
+	git commit -m "commit de Alan Augusto: $(LOGFILE)"
+	git push
