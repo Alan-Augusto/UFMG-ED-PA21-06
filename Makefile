@@ -21,7 +21,8 @@ OUTPUT_FOLDER = ./output/
 MAIN = main
 TARGET = main
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
-LOGFILE = $(shell date --iso=seconds)
+LOGDATE = $(shell date)
+LOGH = $(shell date --iso=seconds)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 
 
@@ -43,5 +44,5 @@ clean:
 
 git:
 	git add .
-	git commit -m "Atualizacao de $(LOGFILE)"
+	git commit -m "Atualizacao de $(LOGDATE)"
 	git push
