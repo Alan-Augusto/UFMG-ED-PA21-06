@@ -20,9 +20,8 @@ OUTPUT_FOLDER = ./output/
 # all sourcers, obs, and header files
 MAIN = main
 TARGET = main
-LOGPATH = logs
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
-LOGFILE = $(LOGPATH)/$(shell date --iso=seconds)
+LOGFILE = $(shell date --iso=seconds)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 
 
@@ -44,5 +43,5 @@ clean:
 
 git:
 	git add .
-	git commit -m "commit de Alan Augusto: $(LOGFILE)"
+	git commit -m "Atualizacao de $(LOGFILE)"
 	git push
