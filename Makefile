@@ -21,8 +21,7 @@ OUTPUT_FOLDER = ./output/
 MAIN = main
 TARGET = main
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
-LOGDATE = $(shell date)
-LOGH = $(shell date --iso=seconds)
+LOGDATE = $(shell date +"%d/%m/%Y as %kh:%Mm")
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 
 
